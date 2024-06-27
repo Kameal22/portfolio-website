@@ -1,25 +1,62 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import {
+  StyledContainer,
+  StyledDescription,
+  StyledHeading,
+  StyledMain,
+  StyledMenuItem,
+  StyledMenuList,
+} from "./styles/Main.styled";
+import About from "./components/About";
+import Home from "./components/Home";
+import Experience from "./components/WorkHistory";
+import Skillset from "./components/Skillset";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import TakeABreak from "./components/Fun";
+
+const menu = ["Home", "About", "Work History", "Skillset", "Contact", "Fun"];
 
 function App() {
+  const [section, setSection] = useState("Home");
+  const [animate, setAnimate] = useState(true);
+
+  const handleSectionChange = (section: string) => {
+    setAnimate(true);
+    setSection(section);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledMain>
+      <StyledContainer>
+        <StyledHeading>Kamil Czyżewski</StyledHeading>
+        <StyledDescription>
+          Front-End Developer - Web & Mobile
+        </StyledDescription>
+
+        <StyledMenuList>
+          {menu.map((item) => (
+            <StyledMenuItem
+              isFun={item === "Fun"}
+              key={item}
+              style={item === section ? { fontWeight: 500 } : {}}
+              onClick={() => handleSectionChange(item)}
+            >
+              {item}
+            </StyledMenuItem>
+          ))}
+        </StyledMenuList>
+
+        {section === "Home" && animate && <Home />}
+        {section === "About" && animate && <About />}
+        {section === "Work History" && animate && <Experience />}
+        {section === "Skillset" && animate && <Skillset />}
+        {section === "Contact" && animate && <Contact />}
+        {section === "Fun" && animate && <TakeABreak />}
+
+        <Footer />
+      </StyledContainer>
+    </StyledMain>
   );
 }
 
