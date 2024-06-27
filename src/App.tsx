@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyledContainer,
   StyledDescription,
@@ -10,21 +10,34 @@ import {
 import About from "./components/About";
 import Home from "./components/Home";
 import Experience from "./components/WorkHistory";
-import Skillset from "./components/Skillset";
+import Skillset from "./components/Technologies";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import TakeABreak from "./components/Fun";
 
-const menu = ["Home", "About", "Work History", "Skillset", "Contact", "Fun"];
+const menu = [
+  "Home",
+  "About",
+  "Work History",
+  "Technologies",
+  "Contact",
+  "Fun",
+];
 
 function App() {
   const [section, setSection] = useState("Home");
-  const [animate, setAnimate] = useState(true);
+  const [animate, setAnimate] = useState(false);
 
   const handleSectionChange = (section: string) => {
     setAnimate(true);
     setSection(section);
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimate(true);
+    }, 500);
+  }, []);
 
   return (
     <StyledMain>
@@ -50,7 +63,7 @@ function App() {
         {section === "Home" && animate && <Home />}
         {section === "About" && animate && <About />}
         {section === "Work History" && animate && <Experience />}
-        {section === "Skillset" && animate && <Skillset />}
+        {section === "Technologies" && animate && <Skillset />}
         {section === "Contact" && animate && <Contact />}
         {section === "Fun" && animate && <TakeABreak />}
 

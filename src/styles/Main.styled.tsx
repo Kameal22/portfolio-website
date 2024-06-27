@@ -110,8 +110,12 @@ export const SubContainerText = styled.h2<SubContainerTextProps>`
 
 export const FooterContainer = styled.div`
   position: absolute;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
 
   p {
     color: white;
@@ -120,8 +124,13 @@ export const FooterContainer = styled.div`
   }
 `;
 
+export const FooterIconContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
 export const WorkHistoryContainer = styled.div`
-  margin-top: 1rem;
+  margin-top: 2rem;
 `;
 
 export const WorkHistoryList = styled.ul`
@@ -145,4 +154,19 @@ export const WorkHistoryListItem = styled.li<WorkHistoryListItemProps>`
       ? "0.75rem"
       : null};
   margin-top: 1rem;
+`;
+
+export const TechnologiesListContainer = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+`;
+
+export const TechnologiesList = styled.ul`
+  list-style: none;
+`;
+
+export const TechnologiesItem = styled.li`
+  color: white;
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
 `;

@@ -1,9 +1,11 @@
-import { SubContainer } from "../styles/Main.styled";
+import { SubContainer, SubContainerText } from "../styles/Main.styled";
 
 const Contact: React.FC = () => {
   return (
     <SubContainer>
-      <h1 style={{ color: "white" }}>Contact</h1>
+      <SubContainerText>
+        Contact me at kamil.czyzewski96@gmail.com
+      </SubContainerText>
     </SubContainer>
   );
 };

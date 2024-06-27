@@ -36,7 +36,7 @@ const WorkHistory: React.FC = () => {
 
       <WorkHistoryContainer>
         {workHistory.map((item) => (
-          <WorkHistoryList>
+          <WorkHistoryList key={item.dates}>
             <WorkHistoryListItem isPosition>
               {item.position}
             </WorkHistoryListItem>
