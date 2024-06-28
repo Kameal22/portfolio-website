@@ -100,6 +100,8 @@ export const SubContainer = styled.div<SubContainerProps>`
 
   @media (max-width: 1080px) {
     width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @media (max-width: 780px) {
@@ -158,6 +160,7 @@ export const FooterContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
   padding: 1rem;
 
   p {
