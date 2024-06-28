@@ -159,17 +159,21 @@ export const FooterContainer = styled.div`
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem;
+  flex-wrap: wrap;
 
   p {
     color: white;
     font-size: 0.8rem;
     font-weight: 300;
   }
+
+  @media (max-width: 599px) {
+    padding: 0.5rem;
+  }
 `;
 
 export const FooterIconContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
   gap: 1rem;
 `;
 
