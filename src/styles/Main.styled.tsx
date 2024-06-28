@@ -27,7 +27,10 @@ export const StyledContainer = styled.div`
   border: 1px solid #eeeeee90;
   padding: 1.5rem;
   height: 100%;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
 
   @media (max-width: 1080px) {
     padding: 1rem;
@@ -47,20 +50,11 @@ export const StyledDescription = styled.p`
   font-size: 1rem;
 `;
 
-export const DesktopNavigation = styled.div`
-  @media (max-width: 1080px) {
-    display: none;
-  }
-`;
-
-export const MobileNavigation = styled.div`
-  display: none;
-  @media (max-width: 1080px) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
+export const Navigation = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
 `;
 
 interface StyledMenuListProps {
@@ -100,9 +94,9 @@ interface SubContainerProps {
 }
 
 export const SubContainer = styled.div<SubContainerProps>`
-  animation: ${slideInFromTop} 1s ease-in-out forwards;
   padding: 1rem;
-  overflow-y: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 
   @media (max-width: 1080px) {
     width: 80%;
@@ -110,6 +104,7 @@ export const SubContainer = styled.div<SubContainerProps>`
 
   @media (max-width: 780px) {
     width: 98%;
+    padding: 0;
   }
 
   /* Custom Scrollbar Styles */
@@ -152,12 +147,14 @@ export const SubContainerText = styled.h2<SubContainerTextProps>`
     font-size: ${(props) => (props.isSmallerSize ? ".95rem" : "1.2rem")};
     line-height: ${(props) => (props.isSmallerHeight ? "1.4rem" : "1.6rem")};
   }
+
+  @media (max-width: 599px) {
+    font-size: ${(props) => (props.isSmallerSize ? ".85rem" : "1.1rem")};
+    line-height: ${(props) => (props.isSmallerHeight ? "1.3rem" : "1.6rem")};
+  }
 `;
 
 export const FooterContainer = styled.div`
-  position: absolute;
-  bottom: 0;
-  right: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -172,6 +169,7 @@ export const FooterContainer = styled.div`
 
 export const FooterIconContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 `;
 
@@ -230,6 +228,17 @@ export const WorkHistoryListItem = styled.li<WorkHistoryListItemProps>`
         ? "0.7rem"
         : null};
   }
+
+  @media (max-width: 599px) {
+    font-size: ${(props) =>
+      props.isPosition
+        ? ".9rem"
+        : props.isCompany
+        ? ".75rem"
+        : props.isDate
+        ? "0.7rem"
+        : null};
+  }
 `;
 
 export const TechnologiesListContainer = styled.div`
@@ -255,5 +264,9 @@ export const TechnologiesItem = styled.li`
 
   @media (max-width: 780px) {
     font-size: 0.85rem;
+  }
+
+  @media (max-width: 599px) {
+    font-size: 0.75rem;
   }
 `;

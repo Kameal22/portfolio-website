@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
-  DesktopNavigation,
-  MobileNavigation,
+  Navigation,
   StyledContainer,
   StyledDescription,
   StyledHeading,
@@ -36,27 +35,7 @@ function App() {
   return (
     <StyledMain>
       <StyledContainer>
-        <DesktopNavigation>
-          <StyledHeading>Kamil Czyżewski</StyledHeading>
-          <StyledDescription>
-            Front-End Developer - Web & Mobile
-          </StyledDescription>
-
-          <StyledMenuList>
-            {menu.map((item) => (
-              <StyledMenuItem
-                isFun={item === "Fun"}
-                key={item}
-                style={item === section ? { fontWeight: 500 } : {}}
-                onClick={() => handleSectionChange(item)}
-              >
-                {item}
-              </StyledMenuItem>
-            ))}
-          </StyledMenuList>
-        </DesktopNavigation>
-
-        <MobileNavigation>
+        <Navigation>
           <div>
             <StyledHeading>Kamil Czyżewski</StyledHeading>
             <StyledDescription>
@@ -76,7 +55,7 @@ function App() {
               </StyledMenuItem>
             ))}
           </StyledMenuList>
-        </MobileNavigation>
+        </Navigation>
 
         {section === "Home" && animate && <Home />}
         {section === "About" && animate && <About />}
