@@ -97,13 +97,9 @@ export const SubContainer = styled.div<SubContainerProps>`
   padding: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  width: 90%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
-
-  @media (max-width: 1080px) {
-    width: 80%;
-  }
 
   @media (max-width: 780px) {
     width: 98%;
