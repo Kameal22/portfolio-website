@@ -21,12 +21,26 @@ function App() {
   const [section, setSection] = useState("Home");
   const [animate, setAnimate] = useState(false);
 
+  const formatSectionForUrl = (section: string) => {
+    return section.replace(/ /g, "-");
+  };
+
+  const formatSectionFromUrl = (urlSection: string) => {
+    return urlSection.replace(/-/g, " ");
+  };
+
   const handleSectionChange = (section: string) => {
     setAnimate(true);
     setSection(section);
+    window.history.pushState(null, "", `#${formatSectionForUrl(section)}`);
   };
 
   useEffect(() => {
+    const currentSection = window.location.hash.replace("#", "");
+    const formattedSection = formatSectionFromUrl(currentSection);
+    if (menu.includes(formattedSection)) {
+      setSection(formattedSection);
+    }
     setTimeout(() => {
       setAnimate(true);
     }, 500);
