@@ -23,7 +23,9 @@ const technologies = [
 const Technologies: React.FC = () => {
   return (
     <SubContainer>
-      <SubContainerText>Technologies I specialize in</SubContainerText>
+      <SubContainerText style={{ textAlign: "center" }}>
+        Technologies I specialize in
+      </SubContainerText>
 
       <TechnologiesListContainer>
         <TechnologiesList>

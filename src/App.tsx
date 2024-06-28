@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
+  DesktopNavigation,
+  MobileNavigation,
   StyledContainer,
   StyledDescription,
   StyledHeading,
@@ -13,16 +15,8 @@ import Experience from "./components/WorkHistory";
 import Skillset from "./components/Technologies";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import TakeABreak from "./components/Fun";
 
-const menu = [
-  "Home",
-  "About",
-  "Work History",
-  "Technologies",
-  "Contact",
-  "Fun",
-];
+const menu = ["Home", "About", "Work History", "Technologies", "Contact"];
 
 function App() {
   const [section, setSection] = useState("Home");
@@ -42,30 +36,53 @@ function App() {
   return (
     <StyledMain>
       <StyledContainer>
-        <StyledHeading>Kamil Czyżewski</StyledHeading>
-        <StyledDescription>
-          Front-End Developer - Web & Mobile
-        </StyledDescription>
+        <DesktopNavigation>
+          <StyledHeading>Kamil Czyżewski</StyledHeading>
+          <StyledDescription>
+            Front-End Developer - Web & Mobile
+          </StyledDescription>
 
-        <StyledMenuList>
-          {menu.map((item) => (
-            <StyledMenuItem
-              isFun={item === "Fun"}
-              key={item}
-              style={item === section ? { fontWeight: 500 } : {}}
-              onClick={() => handleSectionChange(item)}
-            >
-              {item}
-            </StyledMenuItem>
-          ))}
-        </StyledMenuList>
+          <StyledMenuList>
+            {menu.map((item) => (
+              <StyledMenuItem
+                isFun={item === "Fun"}
+                key={item}
+                style={item === section ? { fontWeight: 500 } : {}}
+                onClick={() => handleSectionChange(item)}
+              >
+                {item}
+              </StyledMenuItem>
+            ))}
+          </StyledMenuList>
+        </DesktopNavigation>
+
+        <MobileNavigation>
+          <div>
+            <StyledHeading>Kamil Czyżewski</StyledHeading>
+            <StyledDescription>
+              Front-End Developer - Web & Mobile
+            </StyledDescription>
+          </div>
+
+          <StyledMenuList isFlex>
+            {menu.map((item) => (
+              <StyledMenuItem
+                isFun={item === "Fun"}
+                key={item}
+                style={item === section ? { fontWeight: 500 } : {}}
+                onClick={() => handleSectionChange(item)}
+              >
+                {item}
+              </StyledMenuItem>
+            ))}
+          </StyledMenuList>
+        </MobileNavigation>
 
         {section === "Home" && animate && <Home />}
         {section === "About" && animate && <About />}
         {section === "Work History" && animate && <Experience />}
         {section === "Technologies" && animate && <Skillset />}
         {section === "Contact" && animate && <Contact />}
-        {section === "Fun" && animate && <TakeABreak />}
 
         <Footer />
       </StyledContainer>

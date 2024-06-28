@@ -18,12 +18,12 @@ const workHistory = [
     position: "Junior Web Developer",
   },
   {
-    company: "Life In Mobile",
+    company: "EXIT Realty Corp. International",
     dates: "2021-09 - 2022-12",
     position: "Junior Front-End Developer",
   },
   {
-    company: "Life In Mobile",
+    company: "EXIT Realty Corp. International",
     dates: "2023-01 - Present",
     position: "Front-End Developer",
   },
@@ -32,7 +32,9 @@ const workHistory = [
 const WorkHistory: React.FC = () => {
   return (
     <SubContainer>
-      <SubContainerText>My Work History</SubContainerText>
+      <SubContainerText style={{ textAlign: "center" }}>
+        My Work History
+      </SubContainerText>
 
       <WorkHistoryContainer>
         {workHistory.map((item) => (
