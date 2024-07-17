@@ -81,7 +81,7 @@ export const StyledMenuItem = styled.li<MenuItemProps>`
 
   &:hover {
     cursor: pointer;
-    font-weight: 500;
+    color: orange;
   }
 
   @media (max-width: 780px) {

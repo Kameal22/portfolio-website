@@ -62,7 +62,7 @@ function App() {
               <StyledMenuItem
                 isFun={item === "Fun"}
                 key={item}
-                style={item === section ? { fontWeight: 500 } : {}}
+                style={item === section ? { color: "orange" } : {}}
                 onClick={() => handleSectionChange(item)}
               >
                 {item}
