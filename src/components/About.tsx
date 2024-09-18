@@ -16,6 +16,15 @@ const About: React.FC = () => {
         time. I enjoy working in teams and am seeking opportunities for
         development and honing my skills in interesting projects.
       </SubContainerText>
+      <SubContainerText
+        style={{ marginTop: "2rem" }}
+        isSmallerHeight
+        isSmallerSize
+      >
+        Recently, I completed a Node.js course and expanded my skillset to work
+        with backend development, and eventually become a fullstack with
+        Node.js.
+      </SubContainerText>
     </SubContainer>
   );
 };
